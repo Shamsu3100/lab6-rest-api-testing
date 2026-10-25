@@ -2,7 +2,7 @@
 
 **Duration:** 2 hours  **Work mode:** groups
 
-**Application under test:** `<APP_URL>` (the PyTodo JSON API)
+**Application under test:** `https://pytodo-lab6.onrender.com` (the PyTodo JSON API)
 
 ## 1. What you are building
 
@@ -18,15 +18,17 @@ pip install -r requirements.txt
 Set the app address once per terminal session:
 
 ```bash
-export PYTODO_URL="<APP_URL>"
+export PYTODO_URL="https://pytodo-lab6.onrender.com"
 ```
 
-On Windows PowerShell: `$env:PYTODO_URL="<APP_URL>"`.
+On Windows PowerShell: `$env:PYTODO_URL="https://pytodo-lab6.onrender.com"`.
+
+This URL is only ever used by your test code, never opened in a browser.
 
 Confirm the app is reachable:
 
 ```bash
-curl <APP_URL>/health
+curl https://pytodo-lab6.onrender.com/health
 ```
 
 This should print `ok`. If it does not, stop here and check the URL
@@ -34,11 +36,14 @@ before continuing.
 
 ## 3. Logging in
 
-The API uses the same login as a normal website: a username and
-password, checked once, then remembered by a session cookie. In
-`requests`, a `requests.Session()` object keeps that cookie for you
-automatically between calls, the same way a browser does between page
-loads.
+The app has one fixed demo account, the same for every student:
+username `demo`, password `demo1234`. It is not your own account, it
+exists only so the test suite has something real to log in with.
+
+The API checks this username and password once, then remembers you
+are logged in through a session cookie. In `requests`, a
+`requests.Session()` object keeps that cookie for you automatically
+between calls, the same way a browser does between page loads.
 
 ```python
 import requests
