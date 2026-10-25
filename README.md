@@ -36,14 +36,12 @@ before continuing.
 
 ## 3. Logging in
 
-The app has one fixed demo account, the same for every student:
-username `demo`, password `demo1234`. It is not your own account, it
-exists only so the test suite has something real to log in with.
+Demo account for this lab: username `demo`, password `demo1234`.
 
-The API checks this username and password once, then remembers you
-are logged in through a session cookie. In `requests`, a
-`requests.Session()` object keeps that cookie for you automatically
-between calls, the same way a browser does between page loads.
+The API checks this once, then remembers you are logged in through a
+session cookie. In `requests`, a `requests.Session()` object keeps
+that cookie for you automatically between calls, the same way a
+browser does between page loads.
 
 ```python
 import requests
